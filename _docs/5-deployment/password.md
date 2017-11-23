@@ -19,7 +19,7 @@ which supports authentication through cookies. The two main steps are
 
 - configure CloudFront, preferably using HTTPS, using an origin of `mybucket.s3.amazonaws.com`
 - you can disable website hosting on the bucket, which is not needed anymore
-- repoint your user-facing domain to the CloudFront endpoint intead of S3, e.g. [https://00000000.cloudfront.net](#)
+- repoint your user-facing domain to the CloudFront endpoint instead of S3, e.g. [https://00000000.cloudfront.net](#)
 - remove public access from the Bucket in the "permissions" section
 - grant CloudFront access using the following *Bucket Policy*
 
