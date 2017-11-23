@@ -3,21 +3,21 @@
 
 title: Thumbsup
 url: "https://thumbsup.github.io"
-baseurl:
-google_analytics_key:
+baseurl: /docs
+google_analytics_key: UA-110087713-1
 show_full_navigation: true
 
 # Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
 logo: /siteicon.png
-description: Product documentation template for Jekyll.
+description: Documentation for Thumbsup (static gallery generator)
 author:
   name:
   email:
   twitter: # twitter username without the @ symbol
 social:
-  name: Edition Template
+  name: Documentation (Github)
   links:
-    - https://github.com/CloudCannon/edition-jekyll-template
+    - https://github.com/thumbsup/docs
 
 # -----
 # Build
