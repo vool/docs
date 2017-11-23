@@ -5,9 +5,10 @@ pre, code, tt {
 	border-radius: 2px;
 	line-height: 1.4;
 	font-weight: 400;
-	background-color: #404145;
-	color: #FAFAFA;
+	background-color: #fafafa;
+	color: #222222;
 	border-radius: 2px;
+	-webkit-font-smoothing: auto;
 }
 
 pre {
@@ -27,6 +28,10 @@ pre {
 		border: none;
 		padding: 0
 	}
+}
+
+.nowrap pre, .nowrap code {
+	white-space: pre;
 }
 
 blockquote > code,

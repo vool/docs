@@ -8,12 +8,13 @@ html {
 body {
 	height: 100%;
 	max-height: 100%;
-	font-family: "Merriweather", serif;
+	font-family: Verdana;
 	letter-spacing: 0.01rem;
-	font-size: 1.8em;
+	font-size: 1.6em;
 	line-height: 1.75em;
 	color: #3A4145;
 	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
 	-webkit-font-feature-settings: 'kern' 1;
 	-moz-font-feature-settings: 'kern' 1;
 	-o-font-feature-settings: 'kern' 1;
@@ -46,7 +47,7 @@ h5,
 h6 {
 	color: #2E2E2E;
 	line-height: 1.15em;
-	margin: 0 0 0.4em 0;
+	margin: 0 0 1em 0;
 	font-weight: 600;
 }
 

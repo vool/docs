@@ -1,38 +1,35 @@
 ---
-title: Welcome
+title: Documentation
 ---
 
-This is the **Edition** template from [CloudCannon](http://cloudcannon.com/).
-**Edition** is perfect for documenting your product, application or service.
-It's populated with example content to give you some ideas.
+Thumbsup is a command-line tool.
+Building a gallery is as simple as
 
-ChatApp is a fictional chat application for sending messages and media to others.
-Teams and friend groups would use ChatApp to stay up to date if it existed.
+```bash
+thumbsup --input ./myphotos --output ./gallery
+```
 
-> [Sign up](http://example.com/signup) or learn more about ChatApp at [example.com](http://example.com/).
+The documentation is split into 5 sections
 
-### Getting Started
-
-Getting a message sent is quick and easy with ChatApp:
-
-1. Sign up for an account
-2. Add your friends from their email addresses
-3. Type a message or send a photo
-
-> Feel free to send us a message at [feedback@example.com](mailto:feedback@example.com) with your feedback.
-
-### Features
-
-Explore more of ChatApp by reading about our features:
-
-#### Media
-
-Send images, videos and other media to people. Sources include your computer, phone and Facebook.
-
-#### Contact Syncing
-
-Sync your contact list with your phone and/or Facebook contacts. Never lose your contacts between devices again!
-
-#### Devices
-
-ChatApp is available everywhere. Find out how to set it up on your all your devices.
+<table class="horizontal">
+  <tr>
+    <th><a href="/docs/setup">Introduction</a></th>
+    <td>What thumbsup is and isn't</td>
+  </tr>
+  <tr>
+    <th><a href="/docs/setup">Installation</a></th>
+    <td>Installing thumbsup and building a simple gallery</td>
+  </tr>
+  <tr>
+    <th><a href="/docs/configuration">Configuration</a></th>
+    <td>Details of all configuration settings</td>
+  </tr>
+  <tr>
+    <th><a href="/docs/themes">Themes</a></th>
+    <td>Showcase of the different themes, and how to create a theme</td>
+  </tr>
+  <tr>
+    <th><a href="/docs/deployment">Deployment</a></th>
+    <td>How to deploy your galleries offline & online</td>
+  </tr>
+</table>
