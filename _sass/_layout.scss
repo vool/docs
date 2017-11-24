@@ -97,7 +97,8 @@ header {
 		padding: $emblem-vertical-padding $emblem-horizontal-padding;
 		height: $nav-header-height;
 		box-sizing: border-box;
-		background-color: $brand-colour;
+		// background-color: $brand-colour;
+		background: #17baef;
 		color: #fff;
 		margin: 0;
 		font-size: 1.7rem;
@@ -114,6 +115,12 @@ header {
 			height: $emblem-size;
 			width: $emblem-size;
 			margin-right: $space - 5;
+		}
+
+		.title {
+			font-weight: 700;
+    	font-size: 1.5em;
+    	color: #fff;
 		}
 	}
 
