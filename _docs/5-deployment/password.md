@@ -25,28 +25,28 @@ which supports authentication through cookies. The two main steps are
 
 ```json
 {
-   "Version":"2012-10-17",
-   "Id":"PolicyForCloudFrontPrivateContent",
-   "Statement":[
-     {
-       "Sid":" Grant CloudFront access to all objects",
-       "Effect":"Allow",
-       "Principal":{
-         "AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity 0000000000000"
-       },
-       "Action":"s3:GetObject",
-       "Resource":"arn:aws:s3:::website.com/*"
-     },
- 		{
- 			"Sid": "Grant access to list objects, so S3 can return 404 instead of 403",
- 			"Effect": "Allow",
- 			"Principal": {
- 				"AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity 0000000000000"
- 			},
- 			"Action": "s3:ListBucket",
- 			"Resource": "arn:aws:s3:::website.com"
- 		}
-   ]
+  "Version":"2012-10-17",
+  "Id":"PolicyForCloudFrontPrivateContent",
+  "Statement":[
+    {
+      "Sid":" Grant CloudFront access to all objects",
+      "Effect":"Allow",
+      "Principal":{
+        "AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity 0000000000000"
+      },
+      "Action":"s3:GetObject",
+      "Resource":"arn:aws:s3:::website.com/*"
+    },
+    {
+      "Sid": "Grant access to list objects, so S3 can return 404 instead of 403",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity 0000000000000"
+      },
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::website.com"
+    }
+  ]
 }
 ```
 

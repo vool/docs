@@ -4,15 +4,15 @@ category: Configuration
 order: 2
 ---
 
-#### \-\-thumb-size
+> \-\-thumb-size
 
 Size of the square thumbnails in pixels. Defaults to `120`.
 
-#### \-\-large-size
+> \-\-large-size
 
 Height of the fullscreen photos in pixels. Defaults to `1000`.
 
-#### \-\-download-photos / \-\-download-videos
+> \-\-download-photos / \-\-download-videos
 
 These settings control the download behaviour, and whether the original photos/videos are copied to the output folder.
 
@@ -40,7 +40,7 @@ For example, given a photo called `MyAlbum/IMG_0001.jpg`:
 # the path prefix also be overridden using the --download-link-prefix option
 ```
 
-#### \-\-download-link-prefix
+> \-\-download-link-prefix
 
 This settings controls the download links when `--download-*` is set to `link`.
 The default value is the relative path from the output folder to the input folder.
@@ -62,7 +62,7 @@ This can be overridden with any relative or absolute path, or a URL. For example
 # points download link to "https://static.mygallery.com/originals/holidays/IMG_0001.jpg" (which is assumed to already exist)
 ```
 
-#### \-\-cleanup
+> \-\-cleanup
 
 When enabled (`--cleanup true`) this will generate the website as usual,
 but also delete any **output** media files that are no longer referenced.

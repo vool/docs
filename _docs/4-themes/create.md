@@ -4,6 +4,10 @@ category: Themes
 order: 3
 ---
 
+> Coming soon. Custom themes will be available in the next version of `thumbsup`.
+
+---
+
 A theme is simply a folder following a given structure.
 
 ```bash
@@ -17,7 +21,7 @@ theme
 It can be loaded using:
 
 ```
-—theme file://path/to/theme
+—theme-path file://path/to/theme
 ```
 
 Note that loading a theme from disk will not download any extra code or install dependencies for you.
@@ -80,8 +84,9 @@ theme/partials
 ### helpers
 
 Thumbsup automatically loads JavaScript helpers from the `helpers` folder.
-Each helper is available in the views using `{% raw %}{{#filename}}{% endraw %}`.
-You can pass data to a helper using the `{% raw %}{{#filename arg1, arg2}}{% endraw %}` syntax.
+Each helper is available in the views using `{% raw %}{{name}}{% endraw %}`
+for inline helpers, or `{% raw %}{{#name}}{% endraw %}` for block helpers.
+You can pass data to a helper using the `{% raw %}{{name arg1, arg2}}{% endraw %}` syntax.
 
 ```bash
 theme/helpers
@@ -90,15 +95,17 @@ theme/helpers
 
 ```js
 // hello.js
-module.exports = (name) => {
-  return `hello ${name}`
+module.exports = handlebars => {
+  handlebars.registerHelper('hello', name => {
+    return `hello ${name}`
+  })
 }
 ```
 
 ```hbs
 {% raw %}<!-- album.hbs -->
 <div>
-  {{#hello world}}
+  {{hello world}}
 </div>{% endraw %}
 ```
 

@@ -12,7 +12,7 @@ Themes change the final layout of the galleries, but don't impact the way thumbn
 --theme <name>
 
 # load an external theme
-—-theme file://path/to/theme
+—-theme-path file://path/to/theme
 ```
 
 You can look at [built-in themes](../built-in/) or [create your own](../create/).
