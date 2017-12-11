@@ -43,6 +43,11 @@ Website options:
   --footer                # Text or HTML footer  [default: null]
   --css                   # Path to a custom provided CSS/LESS file for styling  [string]
   --google-analytics      # Code for Google Analytics tracking  [string]
+
+Misc
+  --config                # Load the configuration from a JSON file
+  --log                   # Configure the logging verbosity
+  --usage-stats           # Enable or disable anonymous usage stats
 ```
 {: .nowrap }
 
@@ -87,3 +92,24 @@ Simply specify all arguments as an object, without the `--` prefix:
   "google-analytics": "UA-999999-9"
 }
 ```
+
+### Usage statistics
+
+By default, thumbsup reports anonymous usage stats such as the OS and the gallery size.
+This is used to understand usage patterns and guide development effort, for example
+"should we focus on Windows support" or "should we make optimizations for galleries of 10,000+ photos".
+
+You can disable usage reporting by specifying `--no-usage-stats`.
+When using a JSON config file you can set
+
+```json
+{
+  "usage-stats": false
+}
+```
+
+Rest assured that thumbsup will never report any personal data such as filenames,
+album names or EXIF metadata. You can of course check the source code at
+[https://github.com/thumbsup/thumbsup](https://github.com/thumbsup/thumbsup).
+
+---

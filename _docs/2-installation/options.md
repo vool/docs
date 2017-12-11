@@ -49,14 +49,17 @@ See the <a href="../../2-installation/npm">Docker page</a> for more detail.
 
 ### Checking your installation
 
-Once installed, you can run thumbsup and should expect and output similar to:
+Once installed, you can run thumbsup on a small folder and should expect and output similar to:
 
 ```
 $ thumbsup --input ./photos --output ./website
 
-Indexing files      [===================] 6/6 files
-Resizing media      [===================] 12/12 files
-Creating website    [===================] done
+✔ Indexing folder
+✔ Processing media
+✔ Creating website
 
 Gallery generated successfully
+3 albums, 70 photos, 5 videos
 ```
+
+If you receive any errors please use the `--log` argument to troubleshot the issue, as shown in the [troubleshooting](../../3-configuration/troubleshooting) page.
