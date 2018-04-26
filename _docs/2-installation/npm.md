@@ -10,6 +10,12 @@ Simply install [thumbsup](https://www.npmjs.com/package/thumbsup) globally from 
 npm install -g thumbsup
 ```
 
+If installing thumbsup on a Raspberry Pi, you will need to provide an extra environment variable:
+
+```bash
+LZZ_COMPAT=1 npm install -g thumbsup
+```
+
 ### Additional requirements
 
 The following tools need to be installed, with binaries in your system path:
