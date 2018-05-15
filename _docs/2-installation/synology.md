@@ -20,7 +20,7 @@ The main aspects to be aware of are:
 
 There are two main ways to run the Docker image.
 
-### From the command line
+### 1. From the command line
 
 This is the fastest way to setup thumbsup.
 It's also the only way to trigger the gallery on a schedule.
@@ -38,19 +38,6 @@ docker run \
   thumbsup --config /input/thumbsup.json
 ```
 
-Once the gallery has generated, you can easily upload it if required. For example you can upload the gallery to S3 using:
-
-```bash
-#/bin/bash -e
-
-docker run \
-  -v `pwd`/.aws:/root/.aws \
-  -v `pwd`/website:/website:ro \
-  mesosphere/aws-cli \
-  s3 sync /website s3://mywebsite.com \
-  --exclude '*/@eaDir/*'
-```
-
 To schedule the gallery to build weekly, open Task Scheduler in the control panel.
 Add an entry to run your shell script and
 make you sure the assigned user has permissions to run Docker.
@@ -59,7 +46,7 @@ make you sure the assigned user has permissions to run Docker.
 
 > Tip: you can enable logs for all scheduled tasks at  `Settings > Enable output recording`
 
-### From the UI
+### 2. From the Docker UI
 
 If you'd rather not touch the command line or don't need scheduling,
 you can also configure Docker from the Synology Docker user interface.
@@ -72,3 +59,23 @@ The UI will allow you to inspect the running processes and check the logs easily
 ![Processes screenshot](../../images/synology-processes.png)
 
 ![Processes screenshot](../../images/synology-logs.png)
+
+### Uploading your gallery
+
+Once the gallery has generated, you can easily upload it if required.
+For example you can upload the gallery to S3 using:
+
+```bash
+#/bin/bash -e
+
+docker run \
+  -v `pwd`/.aws:/root/.aws \
+  -v `pwd`/website:/website:ro \
+  mesosphere/aws-cli \
+  s3 sync /website s3://mywebsite.com \
+  --exclude '*/@eaDir/*'
+```
+
+You can also add a task in [CloudSync](https://www.synology.com/dsm/feature/cloud_sync)
+to synchronise your gallery with most Cloud providers. On benefit of using CloudSync
+is that you won't be competing for bandwidth with other uploads on the NAS.
