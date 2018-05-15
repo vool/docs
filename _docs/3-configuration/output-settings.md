@@ -12,6 +12,10 @@ Size of the square thumbnails in pixels. Defaults to `120`.
 
 Height of the fullscreen photos in pixels. Defaults to `1000`.
 
+> \-\-photo-quality
+
+Quality of the resized images, from `0` to `100`.
+
 > \-\-download-photos / \-\-download-videos
 
 These settings control the download behaviour, and whether the original photos/videos are copied to the output folder.
@@ -71,3 +75,66 @@ For example if you delete a photo from the **input** folder,
 it will automatically delete the corresponding thumbnail since no album refers to it anymore.
 
 *Note:* this never deletes any files from the input folder itself.
+
+> \-\-concurrency
+
+This controls the number of photos and videos processed in parallel.
+The default value is `0`, which processes as many as the number of CPU cores.
+It might make the machine / server less responsive, in which case you can specify a fixed number:
+
+```bash
+--concurrency 2
+# process a maximum of 2 photos/videos in parallel
+```
+
+*Note:* This corresponds to the maximum number of `exiftool`, `ffmpeg` and `graphicsmagick`
+processes that are run at the same time, in addition to the main `Node` process.
+There are other limiting factors in terms of performance, such as disk I/O,
+so using more cores does not always increase performance.
+
+> \-\-gm-args
+
+Extra command-line arguments to pass to [GraphicsMagick](http://www.graphicsmagick.org/) when processing images.
+
+- `--gm-args` must be specified once per _logical_ option
+- each option should be specified as a string, including all relevant arguments
+
+For example:
+
+```bash
+# Equalise the image
+thumbsup --gm-args 'equalize'
+
+# Add a border around the image
+thumbsup --gm-args 'border 5x5'
+
+# Sharpen the image
+thumbsup --gm-args 'unsharp 2 0.5 0.7 0'
+
+# Sharpen and add brightness
+thumbsup --gm-args 'unsharp 2 0.5 0.7 0' --gm-args 'modulate 120'
+```
+
+Note that post-processing will only apply to new images.
+As with other options, thumbsups will not regenerate existing images because of a change of flags.
+
+> \-\-watermark
+
+Overlays a watermark on all the resized images. The provided image should be a PNG with transparency.
+The watermark does not affect downloadable images if `--download-photos` is set to `copy`, `link` or `symlink`.
+
+```bash
+thumbsup --watermark copyright.png
+```
+
+> \-\-watermark-position
+
+Defines where the watermark is placed on the image. The possible values are:
+
+- `Repeat`: the watermark is tiled across the entire image
+- `Center`: the watermark is placed in the center of the image
+- `NorthWest`,`North`,`NorthEast`,`West`,`East`,`SouthWest`,`South`,`SouthEast`: the watermark is positioned along the edges
+
+```bash
+thumbsup --watermark copyright.png --watermark-position Tiled
+```
