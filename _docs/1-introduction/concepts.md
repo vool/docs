@@ -23,14 +23,13 @@ Thumbsup generates HTML galleries for existing photos and videos.
 ### Albums
 
 Albums are a central concept in Thumbsup.
-They are a collection of photos and videos, regardless of where the files are on disk.
+Albums are a virtual collection of photos and videos, regardless of where the files are on disk.
 When generating the gallery you can specify how albums are created, e.g.
 
 - 1 album per folder and sub-folder
 - 1 album per date, e.g. `YYYY` or `YYYY/MM`
 
-For now files can only belong to one album, but in the future a file could
-easily be added to several albums.
+A file can belong to zero, one or many albums.
 
 ### Performance
 

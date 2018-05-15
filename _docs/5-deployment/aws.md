@@ -11,7 +11,7 @@ the output folder to Amazon S3 using the [AWS CLI](http://aws.amazon.com/cli/).
 aws s3 sync ./generated/website s3://mybucket --delete
 ```
 
-You can also use [s3cmd](http://s3tools.org/) which offer a few more options.
+You can also use [s3cmd](http://s3tools.org/) which offers a few more options.
 
 ```bash
 s3cmd sync --config=<credentials> --delete-removed --exclude-from <exclude-file> ./generated/website/ s3://mybucket/
