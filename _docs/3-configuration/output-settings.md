@@ -136,5 +136,7 @@ Defines where the watermark is placed on the image. The possible values are:
 - `NorthWest`,`North`,`NorthEast`,`West`,`East`,`SouthWest`,`South`,`SouthEast`: the watermark is positioned along the edges
 
 ```bash
-thumbsup --watermark copyright.png --watermark-position Tiled
+thumbsup --watermark copyright.png --watermark-position Repeat
 ```
+
+![watermark](../../images/watermark.jpg) ![tiled](../../images/watermark-repeat.jpg)
