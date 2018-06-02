@@ -4,8 +4,8 @@ category: Themes
 order: 1
 ---
 
-You can select a theme for the gallery with `--theme`.
-Themes change the final layout of the galleries, but don't impact the way thumbnails are generated.
+Themes change the final style and layout of the galleries.
+They don't impact thumbnail generation, so you can change theme as often as you want within seconds!
 
 ```bash
 # load one of the built-in themes
@@ -13,6 +13,25 @@ Themes change the final layout of the galleries, but don't impact the way thumbn
 
 # load an external theme
 —-theme-path file://path/to/theme
+
+# add additional styles
+--theme-style custom.less
 ```
 
-You can look at [built-in themes](../built-in/) or [create your own](../create/).
+Themes often expose configuration variables such as the background color.
+Simply use `--theme-style <path>` to override any variable, and make the theme your own!
+
+```less
+// Overriding theme variables is an easy way to customize a theme.
+// Theme variables are well supported and should be stable within a theme.
+@theme-variable: 'new value';
+
+// You can also override any other elements.
+// Your styles will be applied on top of the existing theme styles.
+// However the name of CSS classes or IDs might change with new theme versions.
+.other-custom-item {
+  color: red;
+}
+```
+
+You can look at [built-in themes](../built-in/) or maybe [create your own](../create/).

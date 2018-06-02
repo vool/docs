@@ -13,7 +13,7 @@ A theme is simply a folder following a given structure.
 ```bash
 theme
   |__ album.hbs    # main view
-  |__ style.less   # stylesheets
+  |__ theme.less   # stylesheets
   |__ partials     # optional partial templates
   |__ helpers      # optional JS helpers
 ```
@@ -21,7 +21,7 @@ theme
 It can be loaded using:
 
 ```
-—theme-path file://path/to/theme
+--theme-path file://path/to/theme
 ```
 
 Note that loading a theme from disk will not download any extra code or install dependencies for you.
@@ -31,33 +31,64 @@ To submit a theme to be built-in, please [raise an issue on Github here](https:/
 
 ### album.hbs
 
-This template will be called once with the root album.
-It should call itself recursively if there are any nested albums to process.
-See below for the data that's available to render.
+This template will be called for every album in the gallery, including the root album.
+It should typically render thumbnails for every entry in the album, as well as links to nested albums if applicable.
 
 ```hbs
-{% raw %}<h1>{{title}}</h1>
+{% raw %}{{#with album}}
+  <h1>{{title}}</h1>
 
-<h2>Nested albums</h2>
-{{#each album}}
-  {{>album .}}
-{{/each}}
+  <h2>Nested albums</h2>
+  {{#each albums}}
+    <a href="{{relative url}}">{{title}}</a>
+  {{/each}}
 
-<h2>Photos and videos</h2>
-{{#each files}}
-  {{filename}}
-{{/each}}{% endraw %}
+  <h2>Photos and videos</h2>
+  {{#each files}}
+    <a href="{{relative urls.large}}">{{filename}}</a>
+  {{/each}}
+
+{{#endwith}}{% endraw %}
 ```
 
-### styles.less
+The data available to render is described on the [data-model page](../data-model/).
+It's also a good idea to read the [thumbsup source-code](https://github.com/thumbsup/thumbsup) to get familiar with any subtleties.
 
-This is the entry point for any custom styles.
-You can split your styles into multiple files using `@import "other.less";`.
+### theme.less
+
+This is the entry point for all your theme's styles.
 
 ```less
 h1 {
   color: #2070ee;
 }
+```
+
+Some notes:
+
+- You can split your styles into multiple files using `@import "other.less";`
+- The generated CSS file is placed in the `public` folder (important for relative paths)
+
+To make your theme configurable, you should use LESS variables for key elements like colors or sizes.
+For example:
+
+```less
+@highlight: #17baef;
+
+h1 {
+  color: @highlight;
+}
+```
+
+This will allow users to specify their own highlight color using:
+
+```bash
+thumbsup --theme-path ./your-theme --theme-style custom.less
+```
+
+```less
+// custom.less
+@highlight: #ed124d;
 ```
 
 ### partials
@@ -72,7 +103,7 @@ theme/partials
 ```
 
 ```hbs
-{% raw %}<!-- summary.hbs -->
+{% raw %}<!-- caption.hbs -->
 <div>Photo caption</div>
 ```
 
@@ -109,6 +140,14 @@ module.exports = handlebars => {
 </div>{% endraw %}
 ```
 
-## Data model
+### public
 
-TODO
+Every theme typically depends on extra static assets such as JavaScript files or images. The content of the `public` folder is copied as-is to the final gallery, on top of defaults assets bundled by thumbsup.
+
+```bash
+myTheme
+  |__ album.hbs
+  |__ public
+     |__ cool.js
+     |__ dragon.jpg
+```

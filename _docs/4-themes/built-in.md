@@ -42,7 +42,6 @@ This theme uses a larger layout, with one large image per album.
 
 ### classic
 
-This is theme was the default layout of `thumbsup` v1.
 Each album is represented as a 2x2 square of previews.
 
 <div class="row theme-gallery">
