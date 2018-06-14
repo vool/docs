@@ -4,18 +4,15 @@ category: Themes
 order: 3
 ---
 
-> Coming soon. Custom themes will be available in the next version of `thumbsup`.
-
----
-
 A theme is simply a folder following a given structure.
 
 ```bash
 theme
   |__ album.hbs    # main view
   |__ theme.less   # stylesheets
-  |__ partials     # optional partial templates
+  |__ partials     # optional Handlebars partials
   |__ helpers      # optional JS helpers
+  |__ public       # optional static files
 ```
 
 It can be loaded using:
@@ -31,7 +28,7 @@ To submit a theme to be built-in, please [raise an issue on Github here](https:/
 
 ### album.hbs
 
-This template will be called for every album in the gallery, including the root album.
+This Handlebars template will be called for every album in the gallery, including the root album.
 It should typically render thumbnails for every entry in the album, as well as links to nested albums if applicable.
 
 ```hbs
@@ -126,10 +123,8 @@ theme/helpers
 
 ```js
 // hello.js
-module.exports = handlebars => {
-  handlebars.registerHelper('hello', name => {
-    return `hello ${name}`
-  })
+module.exports = name => {
+  return `hello ${name}`
 }
 ```
 
