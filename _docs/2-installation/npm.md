@@ -23,7 +23,11 @@ The following tools need to be installed, with binaries in your system path:
 - [Node.js](http://nodejs.org/)
 - [Exiftool](http://www.sno.phy.queensu.ca/~phil/exiftool/)
 - [GraphicsMagick](http://www.graphicsmagick.org/)
-- [FFmpeg](http://www.ffmpeg.org/)
+
+And optionally:
+
+- [FFmpeg](http://www.ffmpeg.org/) to process videos
+- [Gifsicle](http://www.lcdf.org/gifsicle/) to process animated GIFs
 
 On macOS:
 
@@ -32,6 +36,7 @@ brew install node
 brew install exiftool
 brew install graphicsmagick
 brew install ffmpeg
+brew install gifsicle
 ```
 
 <div class="warning">
