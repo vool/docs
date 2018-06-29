@@ -21,10 +21,32 @@ It can be loaded using:
 --theme-path file://path/to/theme
 ```
 
-Note that loading a theme from disk will not download any extra code or install dependencies for you.
-All dependencies should already have been setup separately if needed (e.g. `npm install`).
-
 To submit a theme to be built-in, please [raise an issue on Github here](https://github.com/thumbsup/thumbsup).
+
+### About build processes
+
+Thumbsup doesn't install any dependencies (or run any build steps) when loading a theme from disk. If your theme has a build process, you can either:
+- ask the user to clone your repo and build the theme locally
+- ideally, build it yourself and publish the result to npm
+
+For example, your Git repo might look like:
+
+```bash
+|__ package.json
+|__ src   # raw files
+|__ dist  # result of the build process, typically git-ignored
+```
+
+Because `npm publish` will publish files relative to the root folder, you must include the following entry in `package.json`:
+
+```json
+{
+  "name": "my-thumbsup-theme",
+  "thumbsup": {
+    "themeRoot": "dist"
+  }
+}
+```
 
 ### album.hbs
 
