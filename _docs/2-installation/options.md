@@ -45,7 +45,7 @@ See the <a href="../../2-installation/npm">npm page</a> for more detail.
   </tr>
 </table>
 
-See the <a href="../../2-installation/npm">Docker page</a> for more detail.
+See the <a href="../../2-installation/docker">Docker page</a> for more detail.
 
 ### Checking your installation
 
