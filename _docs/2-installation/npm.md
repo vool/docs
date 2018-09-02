@@ -53,7 +53,9 @@ if you build <code>ffmpeg</code> from source. Please upgrade to 14.10 and instal
 
 #### Debian
 
-You might run into issues because the available version of Node.js is too old.
+You might have to manually install `cmake` and `g++` to compile the thumbup's binary dependencies.
+
+You could also run into issues because the available version of Node.js is too old.
 You can install Node 10 using:
 
 ```bash
