@@ -79,7 +79,7 @@ it will automatically delete the corresponding thumbnail since no album refers t
 > \-\-concurrency
 
 This controls the number of photos and videos processed in parallel.
-The default value is `0`, which processes as many as the number of CPU cores.
+The default value is the number of CPU cores on the current machine.
 It might make the machine / server less responsive, in which case you can specify a fixed number:
 
 ```bash

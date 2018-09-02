@@ -17,6 +17,7 @@ The main aspects to be aware of are:
   - the config (`--config`)
   - any custom files (e.g. `--css`)
 - thumbsup automatically ignores Synology-specific folders like `#recycle` and `@eaDir`
+- thumbsup uses all available CPU cores by default, which can make a NAS unresponsive. It's recommended to limit concurrency, for example with `--concurrency 2` on a 4-core NAS.
 
 There are two main ways to run the Docker image.
 
