@@ -14,11 +14,36 @@ Height of the fullscreen photos in pixels. Defaults to `1000`.
 
 > \-\-photo-quality
 
-Quality of the resized images, from `0` to `100`.
+Quality of the resized images from `0` (worst) to `100` (best).
+Default is `90`.
+
+> \-\-video-format
+
+Format of the resized videos, either `mp4` (default) or `webm`.
+Note that encoding as `webm` is a lot slower.
+
+> \-\-video-quality
+
+The default behaviour is to use CRF (constant rate factor) to control the output quality.
+This setting controls the quality between `0` (worst) to `100` (best). Default is `75`.
+
+Notes:
+
+- the quality scale is not linear
+- you will most likely want a value between 50% and 90%
+- values over 90% can generate files larger than the original
+
+![Quality size ratio](../../images/quality.png)
+
+> \-\-video-bitrate
+
+Instead of CRF, you can specify a variable bitrate (a.k.a. average bitrate, or target bitrate).
+Check the [ffmpeg docmentation](https://trac.ffmpeg.org/wiki/Encode/H.264) for more information.
+This is not compatible with the `--video-quality` option.
+
+Example: `--video-bitrate "1200k"`.
 
 > \-\-download-photos / \-\-download-videos
-
-These settings control the download behaviour, and whether the original photos/videos are copied to the output folder.
 
 | Value	| Behaviour |
 |-------|-------------------------|
