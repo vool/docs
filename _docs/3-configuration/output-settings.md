@@ -1,7 +1,7 @@
 ---
 title: Output settings
 category: Configuration
-order: 2
+order: 3
 ---
 
 > \-\-thumb-size

@@ -1,7 +1,7 @@
 ---
 title: Album settings
 category: Configuration
-order: 3
+order: 4
 ---
 
 > \-\-albums-from

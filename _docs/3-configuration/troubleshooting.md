@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting
 category: Configuration
-order: 5
+order: 6
 ---
 
 By default, thumbsup renders progress with a nice colorful output:
