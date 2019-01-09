@@ -33,7 +33,9 @@ Notes:
 - you will most likely want a value between 50% and 90%
 - values over 90% can generate files larger than the original
 
-![Quality size ratio](../../images/quality.png)
+Here is an example of the quality setting used on a 35MB movie clip:
+
+![Quality size ratio](../../images/video-quality.png)
 
 > \-\-video-bitrate
 
