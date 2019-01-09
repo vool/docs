@@ -4,25 +4,25 @@ category: Configuration
 order: 3
 ---
 
-> \-\-thumb-size
+> \-\-thumb-size &lt;integer&gt;
 
 Size of the square thumbnails in pixels. Defaults to `120`.
 
-> \-\-large-size
+> \-\-large-size &lt;integer&gt;
 
 Height of the fullscreen photos in pixels. Defaults to `1000`.
 
-> \-\-photo-quality
+> \-\-photo-quality &lt;integer&gt;
 
 Quality of the resized images from `0` (worst) to `100` (best).
 Default is `90`.
 
-> \-\-video-format
+> \-\-video-format &lt;choice&gt;
 
 Format of the resized videos, either `mp4` (default) or `webm`.
 Note that encoding as `webm` is a lot slower.
 
-> \-\-video-quality
+> \-\-video-quality &lt;integer&gt;
 
 The default behaviour is to use CRF (constant rate factor) to control the output quality.
 This setting controls the quality between `0` (worst) to `100` (best). Default is `75`.
@@ -37,7 +37,7 @@ Here is an example of the quality setting used on a 35MB movie clip:
 
 ![Quality size ratio](../../images/video-quality.png)
 
-> \-\-video-bitrate
+> \-\-video-bitrate &lt;integer&gt;
 
 Instead of CRF, you can specify a variable bitrate (a.k.a. average bitrate, or target bitrate).
 Check the [ffmpeg docmentation](https://trac.ffmpeg.org/wiki/Encode/H.264) for more information.
@@ -71,7 +71,7 @@ For example, given a photo called `MyAlbum/IMG_0001.jpg`:
 # the path prefix also be overridden using the --download-link-prefix option
 ```
 
-> \-\-download-link-prefix
+> \-\-download-link-prefix &lt;string&gt;
 
 This settings controls the download links when `--download-*` is set to `link`.
 The default value is the relative path from the output folder to the input folder.
@@ -93,7 +93,7 @@ This can be overridden with any relative or absolute path, or a URL. For example
 # points download link to "https://static.mygallery.com/originals/holidays/IMG_0001.jpg" (which is assumed to already exist)
 ```
 
-> \-\-cleanup
+> \-\-cleanup &lt;boolean&gt;
 
 When enabled (`--cleanup true`) this will generate the website as usual,
 but also delete any **output** media files that are no longer referenced.
@@ -103,7 +103,7 @@ it will automatically delete the corresponding thumbnail since no album refers t
 
 *Note:* this never deletes any files from the input folder itself.
 
-> \-\-concurrency
+> \-\-concurrency &lt;integer&gt;
 
 This controls the number of photos and videos processed in parallel.
 The default value is the number of CPU cores on the current machine.
@@ -119,7 +119,7 @@ processes that are run at the same time, in addition to the main `Node` process.
 There are other limiting factors in terms of performance, such as disk I/O,
 so using more cores does not always increase performance.
 
-> \-\-gm-args
+> \-\-gm-args &lt;string&gt;
 
 Extra command-line arguments to pass to [GraphicsMagick](http://www.graphicsmagick.org/) when processing images.
 
@@ -145,7 +145,7 @@ thumbsup --gm-args 'unsharp 2 0.5 0.7 0' --gm-args 'modulate 120'
 Note that post-processing will only apply to new images.
 As with other options, thumbsups will not regenerate existing images because of a change of flags.
 
-> \-\-watermark
+> \-\-watermark &lt;path&gt;
 
 Overlays a watermark on all the resized images. The provided image should be a PNG with transparency.
 The watermark does not affect downloadable images if `--download-photos` is set to `copy`, `link` or `symlink`.
@@ -154,7 +154,7 @@ The watermark does not affect downloadable images if `--download-photos` is set 
 thumbsup --watermark copyright.png
 ```
 
-> \-\-watermark-position
+> \-\-watermark-position &lt;choice&gt;
 
 Defines where the watermark is placed on the image. The possible values are:
 

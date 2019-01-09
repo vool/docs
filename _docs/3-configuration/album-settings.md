@@ -4,7 +4,7 @@ category: Configuration
 order: 4
 ---
 
-> \-\-albums-from
+> \-\-albums-from &lt;string&gt;
 
 As detailed in the [intro section](../../1-introduction/concepts), albums are a virtual concept in thumbsup.
 Files can belong to arbitrary albums regardless of where they are on disk.
@@ -122,18 +122,31 @@ You can either group all logic into a single function, or specify many mappers s
 --albums-from "Photos/{YYYY}" --albums-from "file://5star.js" --albums-from "file://events.js"
 ```
 
-> \-\-sort-albums-by
+> \-\-sort-albums-by &lt;choice&gt;
 
-How to sort albums  [choices: "title", "start-date", "end-date"] [default: "start-date"]
+| Criteria | Detail |
+|----------|--------|
+| `title`  | Sort alphabetically by album title |
+| `start-date` | Sort by the date of the earliest picture in the album |
+| `end-date` | Sort by the date of the latest picture in the album |
 
-> \-\-sort-albums-direction
+Defaults to `start-date`.
 
-Album sorting direction  [choices: "asc", "desc"] [default: "asc"]
+> \-\-sort-albums-direction &lt;choice&gt;
 
-> \-\-sort-media-by
+Album sorting direction, either `asc` or `desc`. Defaults to `asc`.
 
-How to sort photos and videos  [choices: "filename", "date"] [default: "date"]
+> \-\-sort-media-by &lt;choice&gt;
 
-> \-\-sort-media-direction
+How to sort photos and videos inside each album.
 
-Media sorting direction  [choices: "asc", "desc"] [default: "asc"]
+| Criteria | Detail |
+|----------|--------|
+| `filename` | Sort all media alphabetically by filename |
+| `date` | Sort all media by date. The date is taken from EXIF data if possible, and otherwise infered from the filename or the file's <code>mtime</code>. |
+
+Defaults to `date`.
+
+> \-\-sort-media-direction &lt;choice&gt;
+
+Media sorting direction, either `asc` or `desc`. Defaults to `asc`.

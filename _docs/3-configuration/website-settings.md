@@ -4,13 +4,13 @@ category: Configuration
 order: 5
 ---
 
-> \-\-index
+> \-\-index &lt;filename&gt;
 
 Filename of the home page, defaults to `index.html`. This is useful if
 - your web server expects another file name
 - you already have an `index.html` and want to galleries to sit next to it
 
-> \-\-albums-output-folder
+> \-\-albums-output-folder &lt;string&gt;
 
 The default is for all HTML pages to sit at the root of the gallery.
 This setting lets you group albums into a subfolder, so that the output looks like:
@@ -32,25 +32,25 @@ This can help keep the output folder clean.
 All relative links are still maintained for local browsing.
 This setting does not affect the `index.html` page.
 
-> \-\-theme
+> \-\-theme &lt;choice&gt;
 
 Specifies the theme to apply: `classic`, `cards`, `mosaic`.
 See the [themes](../../4-themes/themes) section for more information.
 
-> \-\-title
+> \-\-title &lt;string&gt;
 
 Website title. Defaults to "Photo album".
 
-> \-\-footer
+> \-\-footer &lt;string&gt;
 
 Optional footer which can be displayed by the theme at the bottom of every page.
 Can be either plain text or HTML.
 
-> \-\-css
+> \-\-css &lt;path&gt;
 
 Optional path to a CSS or LESS file.
 This file is included after all other styles so you can override any particular style from the themes.
 
-> \-\-google-analytics
+> \-\-google-analytics &lt;string&gt;
 
 Optional code for Google Analytics tracking.
