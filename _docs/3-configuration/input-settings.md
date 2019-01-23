@@ -1,7 +1,7 @@
 ---
 title: Input settings
 category: Configuration
-order: 2
+order: 3
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: Website settings
 category: Configuration
-order: 5
+order: 6
 ---
 
 > \-\-index &lt;filename&gt;
