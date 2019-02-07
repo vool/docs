@@ -45,40 +45,45 @@ This is not compatible with the `--video-quality` option.
 
 Example: `--video-bitrate "1200k"`.
 
-> \-\-download-photos / \-\-download-videos
+
+> \-\-photo-preview / \-\-video-preview / \-\-photo-download / \-\-video-download
+
+These settings control the generation of the large "lightbox" photos and videos, and what happens when the user clicks "download". It also controls whether the original photos/videos are copied to the output folder.
+
+All 4 settings default to `resize`. This means a web-friendly version is generated for all photos and videos, used both in the lightbox preview *and* for the download link.
 
 | Value	| Behaviour |
 |-------|-------------------------|
-| `large`	| Download points to the web-friendly large version, which is already generated in the gallery's media folder |
-| `copy`  |	Copies all original files into the output media folder, and points the downloads to them. This significantly increases the size of the gallery, but allows the gallery to be self-contained |
-| `symlink`	| Creates symlinks to the originals in the output folder. This can be useful for galleries made for local browsing |
-| `link`  |	Points the downloads to another (existing) location, which can be local or remote. Use the `--download-link-prefix` option to configure the links, e.g. `../..` or [https://myfiles.com/originals](#) |
+| `resize` | Generates and uses web-friendly versions in the gallery's media folder. |
+| `copy` | Copies all original files into the output media folder, and points to them. This allows the gallery to be full-sized and self-contained, but it increases the size significantly. |
+| `link` | Uses a simple relative link into the input folder. Does not generate or copy any files. |
+| `symlink` | Creates symlinks to the originals in the output folder. This can be useful for galleries made for local browsing |
 
 For example, given a photo called `MyAlbum/IMG_0001.jpg`:
 
 ```bash
---download-photos large
+--photo-download resize
 # points download link to "large/MyAlbum/IMG_0001.jpg"
 
---download-photos copy
-# points download link to "originals/MyAlbum/IMG_0001.jpg" (which is created as part of the build)
+--photo-download copy
+# points download link to "original/MyAlbum/IMG_0001.jpg" (which is created as part of the build)
 
---download-photos symlink
-# points download link to "originals/MyAlbum/IMG_0001.jpg" (which is a symlink to the input photo)
+--photo-download symlink
+# points download link to "original/MyAlbum/IMG_0001.jpg" (which is a symlink to the input photo)
 
---download-photos link
-# by default, will use a relative link to the input folder, relative to the output folder
-# the path prefix also be overridden using the --download-link-prefix option
+--photo-download link
+# by default, will use a link to the photo in the input folder, relative to the output folder
+# the path prefix can be overridden using the --link-prefix option
 ```
 
-> \-\-download-link-prefix &lt;string&gt;
+> \-\-link-prefix &lt;string&gt;
 
-This settings controls the download links when `--download-*` is set to `link`.
+This settings controls the links when the settings above are set to `link`.
 The default value is the relative path from the output folder to the input folder.
 For example:
 
 ```bash
-thumbsup --input /docs/photos --output /docs/website --download-photos link
+thumbsup --input /docs/photos --output /docs/website --photo-download link
 # given a photo called holidays/IMG_0001.jpg
 # the download link will points to ../photos/holidays/IMG_0001.jpg
 ```
@@ -86,10 +91,10 @@ thumbsup --input /docs/photos --output /docs/website --download-photos link
 This can be overridden with any relative or absolute path, or a URL. For example:
 
 ```bash
---download-photos link --download-link-prefix "../../"
+--photo-download link --link-prefix "../../"
 # points download link to "../../holidays/IMG_0001.jpg" (which is assumed to already exist)
 
---download-photos link --download-link-prefix "https://static.mygallery.com/originals/"
+--photo-download link --link-prefix "https://static.mygallery.com/originals/"
 # points download link to "https://static.mygallery.com/originals/holidays/IMG_0001.jpg" (which is assumed to already exist)
 ```
 
