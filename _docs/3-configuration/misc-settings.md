@@ -8,7 +8,7 @@ order: 7
 
 Maintaining many CLI arguments can be tedious.
 You might want to save them somewhere and re-use them easily.
-To help with this `thumbsup` supports passing arguments as a `JSON` file:
+To help with this `thumbsup` supports passing arguments as a [JSON](https://en.wikipedia.org/wiki/JSON) file:
 
 ```bash
 thumbsup --config config.json
@@ -29,6 +29,22 @@ Simply specify all arguments as an object, without the `--` prefix:
   "theme": "cards",
   "css": "./custom.css",
   "google-analytics": "UA-999999-9"
+}
+```
+
+If an argument can be repeated on the command-line, you must specify it as an array in the JSON config:
+
+```json
+{
+  "include": ["holidays/**", "events/**"]
+}
+```
+
+Note that special characters such as quotes must be properly escaped:
+
+```json
+{
+  "footer": "All images courtesy of <a href=\"https://unsplash.com\">unsplash.com</a>"
 }
 ```
 
