@@ -32,6 +32,14 @@ Simply specify all arguments as an object, without the `--` prefix:
 }
 ```
 
+Flags such as `--cleanup` must be entered as a boloean value:
+
+```json
+{
+  "cleanup": true
+}
+```
+
 If an argument can be repeated on the command-line, you must specify it as an array in the JSON config:
 
 ```json
