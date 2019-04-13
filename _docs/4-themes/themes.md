@@ -12,13 +12,18 @@ They don't impact thumbnail generation, so you can change theme as often as you 
 --theme <name>
 
 # load an external theme
-—-theme-path file://path/to/theme
+—-theme-path path/to/theme
 
 # add additional styles
 --theme-style custom.less
 ```
 
-Themes often expose configuration variables such as the background color.
+You can look at [built-in themes](../built-in/) or maybe [create your own](../create/).
+
+### Customising themes
+
+Themes often expose configuration options such as the background color.
+These options should be documented in the theme's documentation.
 Simply use `--theme-style <path>` to override any variable, and make the theme your own!
 
 ```less
@@ -33,5 +38,3 @@ Simply use `--theme-style <path>` to override any variable, and make the theme y
   color: red;
 }
 ```
-
-You can look at [built-in themes](../built-in/) or maybe [create your own](../create/).
