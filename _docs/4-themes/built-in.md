@@ -4,7 +4,7 @@ category: Themes
 order: 2
 ---
 
-There are 3 themes built-in to thumbsup.
+There are 4 themes built-in to thumbsup.
 
 ### mosaic
 
