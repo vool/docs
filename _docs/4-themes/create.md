@@ -73,6 +73,8 @@ It should typically render thumbnails for every entry in the album, as well as l
 The data available to render is described on the [data-model page](../data-model/).
 It's also a good idea to read the [thumbsup source-code](https://github.com/thumbsup/thumbsup) to get familiar with any subtleties.
 
+Like in the example above, make sure to use the built-in `relative` helper when using URLs.
+
 ### theme.less
 
 This is the entry point for all your theme's styles.
