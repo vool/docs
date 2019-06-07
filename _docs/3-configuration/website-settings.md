@@ -34,9 +34,18 @@ This setting does not affect the `index.html` page.
 
 > \-\-theme &lt;choice&gt;
 
-Specifies the theme to apply: `classic`, `cards`, `mosaic`.
+Specifies the theme to apply: `classic`, `cards`, `mosaic`, `flow`.
 See the [themes](../../4-themes/themes) section for more information.
 
+> \-\-theme-path &lt;path&gt;
+
+Specifies the path to a custom local theme.
+See the [creating a theme](../../4-themes/create) section for more information.
+
+> \-\-theme-style &lt;path&gt;
+
+Optional path to a CSS or LESS file.
+This file is included after all other styles so you can override any particular style from the themes.
 > \-\-title &lt;string&gt;
 
 Website title. Defaults to "Photo album".
@@ -45,11 +54,6 @@ Website title. Defaults to "Photo album".
 
 Optional footer which can be displayed by the theme at the bottom of every page.
 Can be either plain text or HTML.
-
-> \-\-css &lt;path&gt;
-
-Optional path to a CSS or LESS file.
-This file is included after all other styles so you can override any particular style from the themes.
 
 > \-\-google-analytics &lt;string&gt;
 
