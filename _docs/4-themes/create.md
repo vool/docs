@@ -127,7 +127,7 @@ The user will have to create a JSON file and specify `--theme-settings file.json
 You can then use these attributes like this:
 
 ```hbs
-<!-- At the root of your HBS template -->
+{% raw %}<!-- At the root of your HBS template -->
 {{#if settings.notify}} {{settings.message}} {{/if}}
 
 <!-- Or somewhere within a loop -->
