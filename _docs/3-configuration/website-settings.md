@@ -46,6 +46,11 @@ See the [creating a theme](../../4-themes/create) section for more information.
 
 Optional path to a CSS or LESS file.
 This file is included after all other styles so you can override any particular style from the themes.
+
+> \-\-theme-settings &lt;path&gt;
+
+Optional path to a JSON file, used to configure specific theme options.
+
 > \-\-title &lt;string&gt;
 
 Website title. Defaults to "Photo album".

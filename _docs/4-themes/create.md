@@ -112,6 +112,35 @@ thumbsup --theme-path ./your-theme --theme-style custom.less
 @highlight: #ed124d;
 ```
 
+### settings
+
+Just like you can expose LESS variables for customising styles, you can expose HBS variables for customising behaviour.
+The user will have to create a JSON file and specify `--theme-settings file.json`.
+
+```json
+{
+  "notify": true,
+  "message": "hello"
+}
+```
+
+You can then use these attributes like this:
+
+```hbs
+<!-- At the root of your HBS template -->
+{{#if settings.notify}} {{settings.message}} {{/if}}
+
+<!-- Or somewhere within a loop -->
+{{#each albums}}
+   {{name}}
+   {{#if @root.settings.notify}}
+     {{@root.settings.message}}
+   {{/if}}
+{{/each}}
+```
+
+Don't forget to document these settings in the theme's README.
+
 ### partials
 
 Thumbsup automatically loads any `.hbs` partials in the `partials` folder.
