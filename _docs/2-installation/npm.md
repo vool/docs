@@ -19,7 +19,10 @@ The following tools also need to be installed, with binaries in your system path
 And optionally:
 
 - [FFmpeg](http://www.ffmpeg.org/) to process videos
+- [ImageMagick](https://imagemagick.org/) to process HEIC files
 - [Gifsicle](http://www.lcdf.org/gifsicle/) to process animated GIFs
+- [dcraw](https://www.cybercom.net/~dcoffin/dcraw/) to process RAW photos: ``
+- [ImageMagick](https://imagemagick.org/) for HEIC support (needs to be compiled with `--with-heic`)
 
 You can verify that `thumbsup` was installed correctly by running:
 
@@ -44,6 +47,7 @@ brew install exiftool
 brew install graphicsmagick
 brew install ffmpeg
 brew install gifsicle
+brew install dcraw
 ```
 
 #### Ubuntu
