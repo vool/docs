@@ -8,7 +8,7 @@ Thumbsup generates HTML galleries for existing photos and videos.
 
 **What it does**
 
-- Thumbsup groups photos into albums, based on criteria you define (e.g. per folder)
+- Thumbsup groups photos into albums, based on criteria you define (e.g. per folder).
 - It creates HTML pages for every album.
 - It generates thumbnails & multiple resolutions for internet-friendly browsing.
 - It only rebuilds thumbnails if the source files have changed: it's fast!
