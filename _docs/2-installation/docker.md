@@ -20,8 +20,16 @@ docker run -t              \
   thumbsup --input /work/media --output /work/gallery
 ```
 
-You can of course mount the volumes differently.
-The only requirement is to make sure the paths referenced are accessible from within the Docker container.
+You can of course mount the volumes differently, for example:
+
+```bash
+docker run -t                   \
+  -v /Volumes/photos:/input:ro  \  # the input folder can be read-only
+  -v `pwd`/website:/output      \
+  -u $(id -u):$(id -g)          \
+  thumbsupgallery/thumbsup      \
+  thumbsup --input /input --output /output
+```
 
 *Notes:*
 
