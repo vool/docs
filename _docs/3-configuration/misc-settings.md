@@ -32,7 +32,7 @@ Simply specify all arguments as an object, without the `--` prefix:
 }
 ```
 
-Flags such as `--cleanup` must be entered as a boloean value:
+Flags such as `--cleanup` must be entered as a boolean value:
 
 ```json
 {
