@@ -24,4 +24,7 @@ See the [cheat sheet](../cheat-sheet) for a list of all possible settings, or di
 - [Website settings](../website-settings)
 - [Misc settings](../misc-settings)
 
-*Note:* all relative paths are relative to the current working directory.
+*Notes:*
+- all relative paths are relative to the current working directory.
+- boolean flags are case sensitive, such as `--include-videos false`
+
