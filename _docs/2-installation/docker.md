@@ -14,7 +14,7 @@ For example:
 
 ```bash
 docker run -t              \
-  -v `pwd`:/work           \
+  -v "$(pwd):/work"        \
   -u $(id -u):$(id -g)     \
   thumbsupgallery/thumbsup \
   thumbsup --input /work/media --output /work/gallery
@@ -25,7 +25,7 @@ You can of course mount the volumes differently, for example:
 ```bash
 docker run -t                   \
   -v /Volumes/photos:/input:ro  \  # the input folder can be read-only
-  -v `pwd`/website:/output      \
+  -v "$(pwd)/website:/output"   \
   -u $(id -u):$(id -g)          \
   thumbsupgallery/thumbsup      \
   thumbsup --input /input --output /output
