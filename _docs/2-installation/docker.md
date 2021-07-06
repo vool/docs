@@ -30,7 +30,7 @@ docker run -t                   \
   -v /Volumes/photos:/input:ro  \  # the input folder can be read-only
   -v "$(pwd)/website:/output"   \
   -u $(id -u):$(id -g)          \
-  thumbsup/thumbsup      \
+  ghcr.io/thumbsup/thumbsup      \
   thumbsup --input /input --output /output
 ```
 
