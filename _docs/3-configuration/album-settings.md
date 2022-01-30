@@ -44,13 +44,14 @@ You can change `mtime` with many tools such as Unix's <code>touch</code> command
 ##### Keywords
 
 The value `%keywords` expands to every ITPC keyword present in the photo.
-For example, if a photo is tagged with `sunset` and `beach`:
+Keywords containing `/` are interpreted as nested hierarchies of keywords.
+For example:
 
 | Keywords | Pattern | Albums |
-|-----------|---------|-------|
-| `sunset`, `beach` | `%keywords` | `sunset`, `beach` |
-| `sunset`, `beach` | `Tags/%keywords` | `Tags/sunset`, `Tags/beach` |
-
+|----------|---------|--------|
+| `beach`, `sunset` | `%keywords` | `beach`, `sunset` |
+| `beach`, `sunset` | `Tags/%keywords` | `Tags/beach`, `Tags/sunset` |
+| `beach`, `beach/sunset`, `beach/sunrise` | `Tags/%keywords` | `Tags/beach`, `Tags/beach/sunset`, `Tags/beach/sunrise` |
 
 ##### Multiple albums
 
