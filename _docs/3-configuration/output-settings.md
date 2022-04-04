@@ -153,7 +153,7 @@ As with other options, thumbsups will not regenerate existing images because of 
 > \-\-watermark &lt;path&gt;
 
 Overlays a watermark on all the resized images. The provided image should be a PNG with transparency.
-The watermark does not affect downloadable images if `--download-photos` is set to `copy`, `link` or `symlink`.
+The watermark does not affect downloadable images if `--photo-download` is set to `copy`, `link` or `symlink`.
 
 ```bash
 thumbsup --watermark copyright.png
