@@ -32,6 +32,6 @@ jobs:
         run: |
           git config --local user.name "Thumbsup Actions Bot"
           git config --local user.email "<>"
-          git add cheat-sheet.md
+          git add _docs/3-configuration/cheat-sheet.md
           git commit -m "Update CLI usage"
           git push origin main
