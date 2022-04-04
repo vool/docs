@@ -34,4 +34,4 @@ jobs:
           git config --local user.email "<>"
           git add _docs/3-configuration/cheat-sheet.md
           git commit -m "Update CLI usage"
-          git push origin main
+          git push origin master
