@@ -42,7 +42,7 @@ Output options:
   --video-download      How downloadable videos are generated  [choices: "resize", "copy", "symlink", "link"] [default: "resize"]
   --link-prefix         Path or URL prefix for "linked" photos and videos  [string]
   --cleanup             Remove any output file that's no longer needed  [boolean] [default: false]
-  --concurrency         Number of parallel parsing/processing operations  [number] [default: 4]
+  --concurrency         Number of parallel parsing/processing operations  [number] [default: 2]
   --output-structure    File and folder structure for output media  [choices: "folders", "suffix"] [default: "folders"]
   --gm-args             Custom image processing arguments for GraphicsMagick  [array]
   --watermark           Path to a transparent PNG to be overlaid on all images  [string]
