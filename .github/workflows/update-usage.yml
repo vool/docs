@@ -1,0 +1,37 @@
+name: Update CLI usage
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 1 * *" # Every month
+
+jobs:
+  test:
+    name: Update CLI usage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - run: npm install -g thumbsup embedme
+      - name: update usage
+        run: |
+          thumbsup --help > usage.txt
+          embedme _docs/3-configuration/cheat-sheet.md
+      - name: check for changes
+        run: |     
+          if [[ -n "$(git status --porcelain)" ]]; then
+            echo "Changes"
+            echo "changes_exist=true" >> $GITHUB_ENV
+          else
+            echo "No changes"          
+          fi
+      - name: push changes
+        if: env.changes_exist == 'true'
+        run: |
+          git config --local user.name "Thumbsup Actions Bot"
+          git config --local user.email "<>"
+          git add cheat-sheet.md
+          git commit -m "Update CLI usage"
+          git push origin main
