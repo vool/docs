@@ -59,7 +59,7 @@ Just like other photos, RAW files are processed to generate thumbnails and a web
 Processing RAW files requires [dcraw](https://www.cybercom.net/~dcoffin/dcraw/) to be installed.
 
 
-> \-\-scan-mode &lt;full | partial | incremental&gt;
+> \-\-scan-mode &lt;full,partial,incremental&gt;
 
 These 3 modes control what happens between multiple runs of Thumbsup, specifically:
 - when a file has been deleted since the last run
@@ -92,7 +92,7 @@ rm 2023/IMG_002.jpg
 thumbsup --input /photos --include '2023/**' --scan-mode 'SEE BELOW'
 ```
 
-|  | `full` | `partial` | `incremental` |
+|  | Full | Partial | Incremental |
 |--|---------|---------|---------|
 | IMG_001 | removed because it's outside the include pattern | kept because it's outside the include pattern | kept |
 | IMG_002 | removed because it was deleted on disk | removed because it was deleted on disk | kept |
