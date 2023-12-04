@@ -8,6 +8,10 @@ order: 4
 
 Size of the square thumbnails in pixels. Defaults to `120`.
 
+> \-\-small-size &lt;integer&gt;
+
+Height of the small photos in pixels. Defaults to `300`.
+
 > \-\-large-size &lt;integer&gt;
 
 Height of the fullscreen photos in pixels. Defaults to `1000`.
