@@ -10,9 +10,9 @@ Here are all the CLI arguments currently supported by thumbsup:
 ```txt
 
 
- Usages:
-   thumbsup [required] [options]
-   thumbsup --config config.json
+Usages:
+  thumbsup [required] [options]
+  thumbsup --config config.json
 
 
 Required:
@@ -20,6 +20,7 @@ Required:
   --output  Output path for the static website  [string] [required]
 
 Input options:
+  --scan-mode           How files are indexed  [choices: "full", "partial", "incremental"] [default: "full"]
   --include-photos      Include photos in the gallery  [boolean] [default: true]
   --include-videos      Include videos in the gallery  [boolean] [default: true]
   --include-raw-photos  Include raw photos in the gallery  [boolean] [default: false]
@@ -34,6 +35,7 @@ Output options:
   --video-quality       Quality of the converted video (percent)  [number] [default: 75]
   --video-bitrate       Bitrate of the converted videos (e.g. 120k)  [string] [default: null]
   --video-format        Video output format  [choices: "mp4", "webm"] [default: "mp4"]
+  --video-hwaccel       Use hardware acceleration (requires bitrate)  [choices: "none", "vaapi"] [default: "none"]
   --video-stills        Where the video still frame is taken  [choices: "seek", "middle"] [default: "seek"]
   --video-stills-seek   Number of seconds where the still frame is taken  [number] [default: 1]
   --photo-preview       How lightbox photos are generated  [choices: "resize", "copy", "symlink", "link"] [default: "resize"]
@@ -82,7 +84,6 @@ Misc options:
   --database-file  Path to the database file  [string]
   --log-file       Path to the log file  [string]
   --log            Print a detailed text log  [choices: "default", "info", "debug", "trace"] [default: "default"]
-  --usage-stats    Enable anonymous usage statistics  [boolean] [default: true]
   --dry-run        Update the index, but don't create the media files / website  [boolean] [default: false]
 
 Deprecated:
@@ -93,6 +94,7 @@ Deprecated:
   --download-photos       Target of the photo download links  [choices: "large", "copy", "symlink", "link"]
   --download-videos       Target of the video download links  [choices: "large", "copy", "symlink", "link"]
   --download-link-prefix  Path or URL prefix for linked downloads  [string]
+  --usage-stats           Enable anonymous usage statistics  [boolean]
 
 Options:
   --version  Show version number  [boolean]
