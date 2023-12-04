@@ -88,11 +88,12 @@ When specified, thumbsup will update the `thumbsup.db` database, but will **not*
 
 > \-\-usage-stats &lt;boolean&gt;
 
-By default, thumbsup reports anonymous usage stats such as the OS and the gallery size.
-This is used to understand usage patterns and guide development effort, for example
-"should we focus on Windows support" or "should we make optimizations for galleries of 10,000+ photos".
+Thumbsup used to report anonymous usage stats to guide development effort, such as the OS and gallery size.
+It did not include any personal data such as filenames, album names or EXIF metadata.
 
-You can disable usage reporting by specifying `--no-usage-stats`.
+This usage reporting has been removed and the flag is now deprecated.
+In previous versions you can disable it by specifying `--no-usage-stats`.
+
 When using a JSON config file you can set
 
 ```json
@@ -100,7 +101,3 @@ When using a JSON config file you can set
   "usage-stats": false
 }
 ```
-
-Rest assured that thumbsup will never report any personal data such as filenames,
-album names or EXIF metadata. You can of course check the source code at
-[https://github.com/thumbsup/thumbsup](https://github.com/thumbsup/thumbsup).
