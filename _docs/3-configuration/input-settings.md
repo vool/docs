@@ -4,7 +4,6 @@ category: Configuration
 order: 3
 ---
 
-
 > \-\-include &lt;glob&gt;
 
 By default, all files in the `--input` folder are added to the gallery.
@@ -59,3 +58,51 @@ Whether to index / process / display camera RAW files (Nikon NEF, Canon CR2...).
 Just like other photos, RAW files are processed to generate thumbnails and a web-friendly preview.
 Processing RAW files requires [dcraw](https://www.cybercom.net/~dcoffin/dcraw/) to be installed.
 
+
+> \-\-scan-mode &lt;full | partial | incremental&gt;
+
+These 3 modes control what happens between multiple runs of Thumbsup, specifically:
+- when a file has been deleted since the last run
+- when a file is not part of the latest scan because of changing `--include` or `--exclude` patterns
+
+|  | Full | Partial | Incremental |
+|--|------|---------|-------------|
+| File outside the include pattern | Remove | Keep | Keep |
+| File deleted from disk (inside the pattern) | Remove | Remove | Keep |
+
+A common use-case for `partial` is to avoid re-scanning folders that never change, but keeping their content in the gallery.
+A common use-case for `incremental` is to always *append* content to an existing gallery, even when the source data no longer exists.
+
+Consider this folder structure:
+
+```bash
+2022/IMG_001.jpg
+2023/IMG_002.jpg
+2023/IMG_003.jpg
+```
+
+```bash
+# Index all photos
+thumbsup --input /photos
+
+# Delete a file
+rm 2023/IMG_002.jpg
+
+# Rerun scoping to 2023
+thumbsup --input /photos --include '2023/**' --scan-mode 'SEE BELOW'
+```
+
+|  | `full` | `partial` | `incremental` |
+|--|---------|---------|---------|
+| IMG_001 | removed because it's outside the include pattern | kept because it's outside the include pattern | kept |
+| IMG_002 | removed because it was deleted on disk | removed because it was deleted on disk | kept |
+| IMG_003 | kept | kept | kept |
+
+**Careful!**
+
+The flags `--include-photos / videos / raw-photos` are applied regardless of the scan mode.
+For example if your gallery has existing videos and you set `--include-videos false`:
+
+- In `full` mode: all videos will be removed from the gallery.
+- In `partial` any video matching the include pattern will be removed from the gallery.
+- In `incremental` mode: all videos will be kept in the gallery, since this mode never removes content.
