@@ -35,7 +35,7 @@ This can be the same shared folders as the input files or target website. Simply
 docker run \
   -v `pwd`/photos:/input:ro \
   -v `pwd`/website:/output \
-  thumbsupgallery/thumbsup:2.2.1 \
+  ghcr.io/thumbsup/thumbsup:2.18.0 \
   thumbsup --config /input/thumbsup.json
 ```
 
